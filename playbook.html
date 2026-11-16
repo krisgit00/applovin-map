@@ -205,11 +205,11 @@ ol.nl .dom{font-family:var(--mono);font-size:12px}
       <a class="backsky" href="index.html" style="align-self:flex-start">← Back to Brand Sky</a>
       <div class="titlebar">
         <div><h1>AppLovin: where to grow awareness and adoption next</h1>
-        <p class="sub">Web data: brand websites among the ~15M most-visited sites that run Meta or TikTok ad pixels, and which run the Axon pixel · Oct 2026</p></div>
+        <p class="sub">About 22,000 online stores run the AppLovin Pixel, versus 3.1M running Meta's. This page covers the established-brand slice: ~2.2M brands buying social ads, from the latest public web crawl.</p></div>
         <div class="keys"><span><i style="background:var(--hot)"></i>Highest opportunity</span><span><i style="background:var(--warm)"></i>Above average</span><span><i style="background:var(--faint)"></i>Lower priority</span></div>
       </div>
       <div class="roles"><span class="label">What do you work on?</span><div class="rolebtns" id="roles">
-        <button type="button" data-r="plan">Planning the 2027 push</button><button type="button" data-r="find">Finding advertisers</button><button type="button" data-r="content">Writing content</button><button type="button" data-r="camp">Running campaigns</button></div>
+        <button type="button" data-r="insight">Main insight</button><button type="button" data-r="plan">Planning the 2027 push</button><button type="button" data-r="find">Finding advertisers</button><button type="button" data-r="content">Writing content</button><button type="button" data-r="camp">Running campaigns</button></div>
         <p class="sub" id="roleNote" hidden></p><div id="roleCard"></div></div>
       <div class="kpis" id="kpis"></div>
       <p class="k" id="scopeNote" style="margin:8px 0 0"></p>
@@ -246,8 +246,8 @@ ol.nl .dom{font-family:var(--mono);font-size:12px}
     
     <section class="card look" id="lookup">
       <div class="planhead"><span class="label">Brand lookup</span><h2>Search the brand pool</h2>
-      <p class="sub">Every brand running Axon, plus every Largest and Large consumer brand not yet on it (about 56K named brands). Fit ranks how closely a brand matches those that already adopted. Smaller brands are counted in the map but not named here.</p></div>
-      <div class="tabs" id="lkTabs" style="align-self:flex-start"><button type="button" data-k="1" aria-pressed="true">Running Axon</button><button type="button" data-k="0" aria-pressed="false">Not yet on Axon</button><button type="button" data-k="a" aria-pressed="false">All</button></div>
+      <p class="sub">Every brand running AppLovin Ads, plus every Largest and Large consumer brand not yet on it (about 56K named brands). Fit ranks how closely a brand matches those that already adopted. Smaller brands are counted in the map but not named here.</p></div>
+      <div class="tabs" id="lkTabs" style="align-self:flex-start"><button type="button" data-k="1" aria-pressed="true">Running AppLovin Ads</button><button type="button" data-k="0" aria-pressed="false">Not yet on AppLovin Ads</button><button type="button" data-k="a" aria-pressed="false">All</button></div>
       <div class="lkf">
         <label for="q" class="vh">Search brands</label><input id="q" type="search" placeholder="Search a domain">
         <label class="sel"><span>Category</span><select id="fV"><option value="">All categories</option></select></label>
@@ -257,10 +257,10 @@ ol.nl .dom{font-family:var(--mono);font-size:12px}
         <label class="tg"><input type="checkbox" id="fO"> Also on Pinterest, Snap or Reddit</label>
       </div>
       <div class="morerow"><span class="k" id="lkCount"></span><button type="button" class="copy" id="lkCopy">Copy domains</button></div>
-      <div class="listwrap"><table class="list"><thead><tr><th>Domain</th><th>Status</th><th>Category</th><th>Size</th><th>Ad pixels</th><th>Platform</th><th id="lkFitH" title="How closely the brand matches brands that already adopted Axon">Fit</th></tr></thead><tbody id="rows"></tbody></table></div>
+      <div class="listwrap"><table class="list"><thead><tr><th>Domain</th><th>Status</th><th>Category</th><th>Size</th><th>Ad pixels</th><th>Platform</th><th id="lkFitH" title="How closely the brand matches brands that already adopted AppLovin Ads">Fit</th></tr></thead><tbody id="rows"></tbody></table></div>
       <div class="morerow" id="lkMore"></div>
     </section>
-    <p class="foot">Independent analysis of public data. Not affiliated with AppLovin. Source: HTTP Archive mobile crawl (15.4M homepages), Meta and TikTok pixels detected by Wappalyzer. Subdomains merged into one brand. Categories tagged from site text, about 85% accurate on a hand check. Axon detected from network requests, including Shopify-app installs that standard detection misses. Homepage-only, so counts are a floor; shares compare like with like. Channel pattern is correlation, used as a targeting signal. Prepared by Krishna Goli.</p>
+    <p class="foot"><b>About this data:</b> I built this from public web data (HTTP Archive, October 2026), looking at the homepages of bigger, established brands, so the counts here are conservative. Store Leads tracks the whole ecommerce market and updates continuously: about 22,000 stores in mid-November with the AppLovin Pixel (the old Axon Pixel), versus 3.1M with Meta's. It counts every storefront, so a brand with several stores shows up more than once. This page counts each brand once and focuses on the established brands in that market. It skews US and Western; many Hong Kong and China cross-border sellers fall outside it. Benchmarks like supplements apply to this group, and the channel pattern is a correlation I use as a targeting signal. Categories are tagged automatically, so a few may be off. Not affiliated with AppLovin. Krishna Goli · <a href="https://www.linkedin.com/in/krishna-goli-0877a0170" target="_blank" rel="noopener">LinkedIn</a></p>
   </main>
 </div>
 
@@ -305,9 +305,9 @@ function drawKpis(){const sc=scope(),n=sc.reduce((a,s)=>a+s.n,0),a=sc.reduce((x,
  const hi=S.tier===null?-1:S.tier, tt=S.tier===null?TT[2]:TT[S.tier];
  document.getElementById('kpis').innerHTML=`
  <div class="kpi"><div class="row"><span class="label">Brands not yet on</span><span class="tag">${S.vert?nm(S.vert):'consumer'}</span></div><b>${pool>=1e5?(pool/1e3).toFixed(0)+'k':fmt(pool)}</b>${mini(poolT,hi,TIERS)}<p class="foot">Consumer brands already buying performance ads</p></div>
- <div class="kpi"><div class="row"><span class="label">Adoption</span><span class="tag">${a.toLocaleString()} on</span></div><b>${(a/n*100).toFixed(2)}%</b>${mini(rateT,hi,TIERS)}<p class="foot">Share of brands in view running Axon</p></div>
+ <div class="kpi"><div class="row"><span class="label">Adoption</span><span class="tag">${a.toLocaleString()} on</span></div><b>${(a/n*100).toFixed(2)}%</b>${mini(rateT,hi,TIERS)}<p class="foot">Share of brands in view running AppLovin Ads</p></div>
  <div class="kpi"><div class="row"><span class="label">New-channel signal</span><span class="tag hot">${(tt[1]/tt[0]).toFixed(1)}×</span></div><b>${tt[1].toFixed(1)}</b>${mini(TT.map(r=>r[1]/r[0]),hi,TIERS)}<p class="foot">Adopters per 1,000 brands also on TikTok, Pinterest, Snap or Reddit${S.tier===null?' (small)':''}, vs ${tt[0]} Meta-only</p></div>
- <div class="kpi"><div class="row"><span class="label">Brands on Axon</span><span class="tag up">all categories</span></div><b>${fmt(ALL.adopt)}</b>${mini(TT.map(r=>r[1]),hi,TIERS)}<p class="foot">of ${fmt(ALL.brands)} brands buying social ads. Bars: adoption per 1,000 among new-channel brands, by size</p></div></div>`}
+ <div class="kpi"><div class="row"><span class="label">Brands on AppLovin Ads</span><span class="tag up">all categories</span></div><b>${fmt(ALL.adopt)}</b>${mini(TT.map(r=>r[1]),hi,TIERS)}<p class="foot">of ${fmt(ALL.brands)} brands buying social ads. Bars: adoption per 1,000 among new-channel brands, by size</p></div></div>`}
 function color(s){const T=TABS[S.tab],k=T.key(s);const ks=scope().map(T.key).filter(x=>x>0).sort((a,b)=>b-a);if(k<=0)return 'g';return k>=ks[Math.min(2,ks.length-1)]?'h':k>=ks[Math.floor(ks.length/3)]?'w':'g'}
 function drawHeat(){const sc=new Set(scope());let top=[...scope()].sort((a,b)=>TABS[S.tab].key(b)-TABS[S.tab].key(a)).slice(0,5);
  const vs=[...CONS].sort((x,y)=>H[y][1].a/H[y][1].n-H[x][1].a/H[x][1].n);
@@ -321,7 +321,7 @@ function drawRank(){const T=TABS[S.tab];document.getElementById('tabsub').textCo
  const L=[...scope()].filter(s=>T.key(s)>0).sort((a,b)=>T.key(b)-T.key(a)).slice(0,8),m=L.length?T.key(L[0]):1;
  document.getElementById('rank').innerHTML=L.map((s,i)=>{const c=color(s),cl=c==='h'?'':c;return `<tr data-i="${SEG.indexOf(s)}" class="${S.sel===s?'sel':''}"><td><span class="dot ${cl}">${i+1}</span></td><td class="nm">${nm(s.v)} · ${TIERS[s.t]}<small>${T.why(s)}</small></td><td><div class="hb ${cl}" style="width:${T.key(s)/m*100}%"></div></td><td class="v">${T.show(s)}</td></tr>`}).join('')||'<tr><td colspan="4" class="why">Nothing in this filter. Widen the size or category.</td></tr>';
  const sc=scope(),n=sc.reduce((a,s)=>a+s.n,0),a=sc.reduce((x,s)=>x+s.a,0),head=sc.reduce((x,s)=>x+s.head,0),un=sc.filter(s=>s.lift<0.75).reduce((x,s)=>x+s.pool,0);
- document.getElementById('strip').innerHTML=`<span><b>${fmt(n)}</b>consumer brands in view</span><span><b>${fmt(a)}</b>already on Axon</span><span class="hot"><b>${fmt(head)}</b>room to grow at supplement-level adoption</span><span><b>${fmt(un)}</b>in below-average segments</span>`}
+ document.getElementById('strip').innerHTML=`<span><b>${fmt(n)}</b>consumer brands in view</span><span><b>${fmt(a)}</b>already on AppLovin Ads</span><span class="hot"><b>${fmt(head)}</b>room to grow at supplement-level adoption</span><span><b>${fmt(un)}</b>in below-average segments</span>`}
 function pick(){if(S.sel)return S.sel;const T=TABS[S.tab],L=[...scope()].sort((a,b)=>T.key(b)-T.key(a));return L.find(s=>s.t<=1)||L[0]}
 const SKIP=new Set(['tvsmotor.com','atherenergy.com','americansongwriter.com','yamaha-motor-india.com','triveniworld.com','fcbarcelona.com','psacard.com']);
 const PROS=RAW.prospects, LH=RAW.lighthouses.filter(r=>!SKIP.has(r[0]));
@@ -344,13 +344,13 @@ function drawPlan(){const s=pick();if(!s)return;const seg=`${nm(s.v)} · ${TIERS
  document.getElementById('planTitle').textContent=SC==='all'?'All consumer categories':SC==='vert'?`${nm(s.v)} · all sizes`:seg;
  document.querySelectorAll('#scope button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===SC));
  const scopeSegs=SC==='all'?SEG:SC==='vert'?SEG.filter(x=>x.v===s.v):[s],sPool=scopeSegs.reduce((q,x)=>q+x.pool,0),sN=scopeSegs.reduce((q,x)=>q+x.n,0),sA=scopeSegs.reduce((q,x)=>q+x.a,0),sHead=scopeSegs.reduce((q,x)=>q+x.head,0);
- document.getElementById('planSub').textContent=`${fmt(sPool)} brands not yet on Axon · ${(sA/sN*100).toFixed(2)}% adopted · ${sHead>0?fmt(sHead)+' room to grow vs supplements':'the benchmark'}. Select any cell or row to focus a segment.`;
+ document.getElementById('planSub').textContent=`${fmt(sPool)} brands not yet on AppLovin Ads · ${(sA/sN*100).toFixed(2)}% adopted · ${sHead>0?fmt(sHead)+' room to grow vs supplements':'the benchmark'}. Select any cell or row to focus a segment.`;
  const chip=(on,l)=>on?`<span class="px on">${l}</span>`:'';
  document.getElementById('plan').innerHTML=`
  ${SC==='all'?(()=>{const big=SEG.filter(x=>x.t<=1&&x.head>0).sort((a,b)=>b.head-a.head).slice(0,3);const cnt={ready:0,reach:0,unaware:0};SEG.forEach(x=>cnt[layer(x)]+=x.pool);
   return `<div class="act strat"><span class="label">Strategy · all categories</span><h3>Largest room to grow</h3>
   <p>${big.map(x=>`${nm(x.v)} · ${TIERS[x.t]} (+${fmt(x.head)})`).join(', ')}.</p>
-  <p class="k">Brands not yet on Axon by tag: Ready ${fmt(cnt.ready)} · Reachable ${fmt(cnt.reach)} · Low awareness ${fmt(cnt.unaware)}.</p></div>`})()
+  <p class="k">Brands not yet on AppLovin Ads by tag: Ready ${fmt(cnt.ready)} · Reachable ${fmt(cnt.reach)} · Low awareness ${fmt(cnt.unaware)}.</p></div>`})()
  :SC==='vert'?(()=>{const vs=SEG.filter(x=>x.v===s.v),hd=vs.reduce((a,x)=>a+x.head,0),VL=LAYER[(VLIFT[s.v]||0)>=1?'ready':(VLIFT[s.v]||0)>=.75?'reach':'unaware'];
   return `<div class="act strat"><span class="label">Strategy · ${VL.name}</span><h3>${(VLIFT[s.v]||0).toFixed(1)}× typical adoption across sizes</h3>
   <p class="k">${VL.why}</p><p><strong>Channel:</strong> ${VL.channel}</p><p><strong>Lead with:</strong> ${leadWith(s.v)}</p>
@@ -362,17 +362,17 @@ function drawPlan(){const s=pick();if(!s)return;const seg=`${nm(s.v)} · ${TIERS
   <p class="k">${s.head>0?`If this segment matched supplements: <strong>+${fmt(s.head)} advertisers</strong>.`:'Supplements is the benchmark other segments are measured against.'}</p></div>`}
  <div class="act wide"><span class="label">1 · Prospects</span><h3>Who's next</h3>
 
-  <p class="k">Not yet on Axon, ranked by how closely they match brands that already adopted (category, size, platform, channels). .com and .us brands first. Model-ranked; verify before outreach.</p>
+  <p class="k">Not yet on AppLovin Ads, ranked by how closely they match brands that already adopted (category, size, platform, channels). .com and .us brands first. Model-ranked; verify before outreach.</p>
   ${next.length?`<ol class="nl">${next.map(r=>`<li><span class="dom">${esc(r[0])}</span> ${chip(r[3],'SHOPIFY')}${chip(r[4],'TIKTOK')}${chip(r[5],'PIN/SNAP/RDT')}</li>`).join('')}</ol>
   <button type="button" class="copy" id="cpNext">Copy domains</button>`:'<p class="k">Named lists cover the largest and large brands. Pick a Largest or Large cell.</p>'}</div>
  <div class="act"><span class="label">2 · Lighthouses</span><h3>Lighthouse prospects</h3>
-  <p class="k">${SC==='all'?'The best-known store not yet on Axon in each category, lowest-adopting categories first.':`Well-known ${nm(s.v).toLowerCase()} stores not yet on Axon. Hand-checked.`}</p>
+  <p class="k">${SC==='all'?'The best-known store not yet on AppLovin Ads in each category, lowest-adopting categories first.':`Well-known ${nm(s.v).toLowerCase()} stores not yet on AppLovin Ads. Hand-checked.`}</p>
   <ol class="nl">${lh.map((r,i)=>`${!r[6]&&(i===0||lh[i-1][6])?'<li class="sep">Model-ranked, not hand-checked</li>':''}<li><span class="dom">${esc(r[0])}</span>${SC==='all'?` <span class="k">${esc(nm(r[2]))}</span>`:''}</li>`).join('')||'<li>None in the list.</li>'}</ol>${SC==='all'?moreBtns('lh',lh.length,lhList.length):''}</div>
  <div class="act"><span class="label">3 · Case studies</span><h3>Case studies</h3>
-  <p class="k">${SC==='all'?'Hand-checked: one per category first, then more.':`${nm(s.v)} brands already on Axon. Hand-checked first.`}</p>
+  <p class="k">${SC==='all'?'Hand-checked: one per category first, then more.':`${nm(s.v)} brands already on AppLovin Ads. Hand-checked first.`}</p>
   <ol class="nl">${cases.map((c,i)=>`${!c.cur&&(i===0||cases[i-1].cur)?'<li class="sep">Model-ranked, not hand-checked</li>':''}<li><span class="dom">${esc(c.d)}</span> <span class="k">${SC==='all'?esc(nm(c.v)):TIERS[c.t]}</span></li>`).join('')||'<li>No adopters in the named list yet.</li>'}</ol>${moreBtns('cs',cases.length,csList.length)}</div>
  <div class="act"><span class="label">4 · Track it</span><h3>Track progress</h3>
-  ${(()=>{const n=SC==='seg'?s.n:scopeSegs.reduce((q,x)=>q+x.n,0),a=SC==='seg'?s.a:scopeSegs.reduce((q,x)=>q+x.a,0),bn=SC==='seg'?s.n*BENCH[s.t]:scopeSegs.reduce((q,x)=>q+x.n*BENCH[x.t],0);return `<p class="k"><strong>Today:</strong> ${(a/n*1000).toFixed(1)} per 1,000 brands on Axon (${fmt(a)} of ${fmt(n)}).</p><p class="k"><strong>Supplements benchmark:</strong> ${(bn/n*1000).toFixed(1)} per 1,000.</p><p class="k"><strong>Re-check monthly:</strong> the public crawl refreshes every month, so adoption here can be tracked against any campaign.</p><p class="k"><strong>Survey sample:</strong> ${SC==='seg'&&s.t<=1?`${fmt(n-a)} brands not yet on Axon, exportable from Search the brand pool.`:'Largest and Large brands not yet on Axon are exportable from Search the brand pool.'}</p>`})()}</div>`;
+  ${(()=>{const n=SC==='seg'?s.n:scopeSegs.reduce((q,x)=>q+x.n,0),a=SC==='seg'?s.a:scopeSegs.reduce((q,x)=>q+x.a,0),bn=SC==='seg'?s.n*BENCH[s.t]:scopeSegs.reduce((q,x)=>q+x.n*BENCH[x.t],0);return `<p class="k"><strong>Today:</strong> ${(a/n*1000).toFixed(1)} per 1,000 brands on AppLovin Ads (${fmt(a)} of ${fmt(n)}).</p><p class="k"><strong>Supplements benchmark:</strong> ${(bn/n*1000).toFixed(1)} per 1,000.</p><p class="k"><strong>Re-check monthly:</strong> the public crawl refreshes every month, so adoption here can be tracked against any campaign.</p><p class="k"><strong>Survey sample:</strong> ${SC==='seg'&&s.t<=1?`${fmt(n-a)} brands not yet on AppLovin Ads, exportable from Search the brand pool.`:'Largest and Large brands not yet on AppLovin Ads are exportable from Search the brand pool.'}</p>`})()}</div>`;
  document.querySelectorAll('#plan .more').forEach(b=>b.onclick=()=>{const k=b.dataset.m;MORE[k]=b.dataset.a==='less'?5:MORE[k]+10;drawPlan()});
  
  const cp=document.getElementById('cpNext');if(cp){cp.dataset.l='Copy domains';cp.onclick=()=>copyText(next.map(r=>r[0]).join('\n'),cp)}
@@ -389,8 +389,8 @@ function lkRows(){const q=(document.getElementById('q').value||'').trim().toLowe
  let L=POOL.filter(r=>(LK.tab==='a'||(LK.tab==='1'?r.st===1:r.st!==1))&&(!q||r.d.includes(q))&&(!V||r.v===V)&&(T===''||r.t===+T)&&(!fS||r.s)&&(!fK||r.k)&&(!fO||r.o));
  L.sort(LK.tab==='1'?(a,b)=>a.t-b.t||a.d.localeCompare(b.d):(a,b)=>b.f-a.f||a.t-b.t);return L}
 function drawList(){const L=lkRows(),sh=L.slice(0,LK.n),px=(o,l)=>`<span class="px ${o?'on':''}">${l}</span>`;
- const ST=['Not yet on Axon','On Axon','AppLovin connection'];
- document.getElementById('lkCount').textContent=`${fmt(L.length)} brands${L.length>sh.length?` · showing ${fmt(sh.length)}`:''}${LK.tab==='0'?` · named here: largest and large consumer brands. ${fmt(ALL.brands-ALL.adopt)} not yet on Axon in total`:''}`;
+ const ST=['Not yet on AppLovin Ads','On AppLovin Ads','AppLovin connection'];
+ document.getElementById('lkCount').textContent=`${fmt(L.length)} brands${L.length>sh.length?` · showing ${fmt(sh.length)}`:''}${LK.tab==='0'?` · named here: largest and large consumer brands. ${fmt(ALL.brands-ALL.adopt)} not yet on AppLovin Ads in total`:''}`;
  document.getElementById('rows').innerHTML=sh.map(r=>`<tr><td class="dom">${esc(r.d)}</td><td>${ST[r.st]}</td><td>${esc(nm(r.v))}</td><td>${TIERS[r.t]}</td><td>${px(r.k,'TIKTOK')}${px(r.o,'PIN/SNAP/RDT')}</td><td class="t">${r.s?'Shopify':'Other'}</td><td>${r.st===1?'–':fitLbl(r.f)}</td></tr>`).join('')||'<tr><td colspan="7" class="t">No brands match these filters.</td></tr>';
  document.getElementById('lkMore').innerHTML=L.length>sh.length?`<button type="button" class="more" id="lkM">Show 50 more</button>`:'';
  const m=document.getElementById('lkM');if(m)m.onclick=()=>{LK.n+=50;drawList()};
@@ -409,34 +409,34 @@ function roleCard(r){const big=SEG.filter(s=>s.t<=1&&s.head>0).sort((a,b)=>b.hea
  const surveyN=SEG.filter(s=>layer(s)==='unaware'&&s.t<=2).reduce((a,s)=>a+Math.min(100,Math.round(s.pool*.1)),0);
  const C={plan:`<div class="rc">Largest room to grow: ${big.map(s=>`${nm(s.v)} · ${TIERS[s.t]} (+${fmt(s.head)})`).join(', ')}. A baseline survey of ~${fmt(surveyN)} brands in below-average segments, repeated quarterly, would track awareness through 2027.</div>`,
   find:`<div class="rc">Named prospects cover Largest and Large brands. Brands with an existing AppLovin connection are excluded.</div>`,
-  content:`<div class="rc"><ol class="nl ang"><li>Axon adoption rises with each newer channel a brand runs: 10–18× higher for brands on two newer channels than for Meta-only brands.</li>
-   <li>9.9% of mid-size supplement brands run Axon, about 2.5× the next category.</li>
-   <li>Most Axon brands on the web are Shopify stores; 3,540 sites were found only through Shopify-app traffic.</li></ol>
+  content:`<div class="rc"><ol class="nl ang"><li>AppLovin Ads adoption rises with each newer channel a brand runs: 10–18× higher for brands on two newer channels than for Meta-only brands.</li>
+   <li>9.9% of mid-size supplement brands run AppLovin Ads, about 2.5× the next category.</li>
+   <li>Most AppLovin Ads brands on the web are Shopify stores; 3,540 sites were found only through Shopify-app traffic.</li></ol>
    <button type="button" class="copy" id="goProof">Case studies by category</button></div>`,
   camp:`<div class="rc">Each segment is tagged Ready, Reachable or Low awareness based on adoption versus brands of the same size, with a suggested channel.</div>`};
  document.getElementById('roleCard').innerHTML=C[r]||'';
  const gp=document.getElementById('goProof');if(gp)gp.onclick=()=>{S.scope='all';MORE.lh=5;MORE.cs=5;drawPlan();document.querySelector('.plan').scrollIntoView({behavior:'smooth',block:'start'})}}
 // ---- role views
-const ROLE={plan:{tab:"headroom",go:"top",note:"Where the 2027 spend moves the most brands: room to grow by segment, plus the plan for the one you select."},
+const ROLE={insight:{tab:"headroom",go:"feat",note:""},plan:{tab:"headroom",go:"top",note:"Where the 2027 spend moves the most brands: room to grow by segment, plus the plan for the one you select."},
  find:{tab:"headroom",go:"plan",note:"Who's next and lighthouse prospects for the segment you select, with a copy button."},
  content:{tab:"proven",go:"roles",note:"Story angles built from the findings, plus the brands to feature as proof. The full findings are under Key insights."},
- camp:{tab:"unaware",go:"plan",note:"Audience, message, channel and measurement for each segment, starting with those that haven't heard of Axon."}};
-const GO={top:".opp",next:".plan",content:"#content",plan:".plan",roles:".roles"};
+ camp:{tab:"unaware",go:"plan",note:"Audience, message, channel and measurement for each segment, starting with those that haven't heard of AppLovin Ads."}};
+const GO={feat:"#stats .stat.feat",top:".opp",next:".plan",content:"#content",plan:".plan",roles:".roles"};
 document.getElementById('roles').onclick=e=>{const b=e.target.closest('button');if(!b)return;const r=ROLE[b.dataset.r];
  document.querySelectorAll('#roles button').forEach(x=>x.setAttribute('aria-pressed',x===b));roleCard(b.dataset.r);
  S.tab=r.tab;S.sel=null;draw();const el=document.querySelector(GO[r.go]);el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')};
 // ---- content stats
 const tot=SEG.reduce((s,x)=>s+x.n,0),totA=SEG.reduce((s,x)=>s+x.a,0),sup=SEG.filter(s=>s.v==="Supplements & nutrition"&&s.t===1)[0];
-// staircase: Axon adoption per 1,000 by number of newer channels (0 = Meta only), by size
+// staircase: AppLovin Ads adoption per 1,000 by number of newer channels (0 = Meta only), by size
 const STAIR=[[3.92,18.47,56.58],[4.87,22.98,50.78],[1.38,6.96,14.94],[0.59,3.70,10.37]];
 const mx=Math.max(...STAIR.flat());
 const stairHTML=`<div class="stair">${STAIR.map((r,t)=>`<div class="srow"><span class="sl">${TIERS[t]}</span><div class="sbars">${r.map((v,i)=>`<div class="sb s${i}" style="width:${Math.max(1.5,v/mx*88)}%"><span>${v.toFixed(1)}</span></div>`).join('')}</div><span class="sx">${(r[2]/r[0]).toFixed(0)}×</span></div>`).join('')}
- <div class="legend2"><span><i class="s0"></i>Meta only</span><span><i class="s1"></i>+1 newer channel</span><span><i class="s2"></i>+2 newer channels (TikTok and Pinterest, Snap or Reddit)</span><span>Axon adopters per 1,000 brands</span></div></div>`;
+ <div class="legend2"><span><i class="s0"></i>Meta only</span><span><i class="s1"></i>+1 newer channel</span><span><i class="s2"></i>+2 newer channels (TikTok and Pinterest, Snap or Reddit)</span><span>AppLovin Ads adopters per 1,000 brands</span></div></div>`;
 const INS=[
- {h:'Meta-only brands almost never adopt Axon. Brands on two newer channels adopt at 10–18× the rate, at every size.',b:'The pattern holds within Shopify stores (5–10×). Brands already running other channels are the most likely first adopters.',x:stairHTML,f:true},
- {h:`Supplements leads: ${(sup.r*100).toFixed(1)}% of mid-size supplement brands run Axon, about 2.5× the next category.`,b:'Used as the benchmark for every "room to grow" figure on this page.'},
- {h:`${fmt(ALL.adopt)} of ${fmt(ALL.brands)} brands running Meta or TikTok pixels on the most-visited websites run Axon.`,b:'Adoption is highest among the largest brands and drops sharply below the top 1M sites.'},
- {h:'Most Axon brands on the web are Shopify stores, and more than half were found only through Shopify-app event traffic.',b:'3,540 sites were identified only through Shopify-app event traffic, which standard detection tools miss.'}];
+ {h:'Meta-only brands almost never adopt AppLovin Ads. Brands on two newer channels adopt at 10–18× the rate, at every size.',b:'The pattern holds within Shopify stores (5–10×). Brands already running other channels are the most likely first adopters.',x:stairHTML,f:true},
+ {h:`Supplements leads: ${(sup.r*100).toFixed(1)}% of mid-size supplement brands run AppLovin Ads, about 2.5× the next category.`,b:'Used as the benchmark for every "room to grow" figure on this page.'},
+ {h:`${fmt(ALL.adopt)} of ${fmt(ALL.brands)} brands running Meta or TikTok pixels on the most-visited websites run AppLovin Ads.`,b:'Adoption is highest among the largest brands and drops sharply below the top 1M sites.'},
+ {h:'Most AppLovin Ads brands on the web are Shopify stores, and more than half were found only through Shopify-app event traffic.',b:'3,540 sites were identified only through Shopify-app event traffic, which standard detection tools miss.'}];
 document.getElementById('stats').innerHTML=INS.map(i=>`<div class="stat ${i.f?'feat':''}"><p class="ih">${i.h}</p><p class="ib">${i.b}</p>${i.x||''}</div>`).join('');
 // ---- case-study priority
 const VPOOL={};SEG.forEach(s=>VPOOL[s.v]=(VPOOL[s.v]||0)+s.pool);
